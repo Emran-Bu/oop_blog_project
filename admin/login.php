@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
+    <title>OOP | Blog | Admin | Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,11 +26,12 @@
 
     <div class="container">
 
-      <form class="form-signin" action="index.html">
-        <h2 class="form-signin-heading">sign in now</h2>
+      <form class="form-signin" action="index.html" method="post">
+        <h2 class="form-signin-heading">Login in now</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" autofocus>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="text" class="form-control" placeholder="User ID" name="username" autofocus>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right">
@@ -38,18 +39,10 @@
 
                 </span>
             </label>
-            <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
-            <p>or you can sign in via social network</p>
-            <div class="login-social-link">
-                <a href="index.html" class="facebook">
-                    <i class="fa fa-facebook"></i>
-                    Facebook
-                </a>
-                <a href="index.html" class="twitter">
-                    <i class="fa fa-twitter"></i>
-                    Twitter
-                </a>
-            </div>
+
+            <button class="btn btn-lg btn-login btn-block" type="submit">Login in</button>
+
+            <!-- registration  -->
             <div class="registration">
                 Don't have an account yet?
                 <a class="" href="registration.html">
