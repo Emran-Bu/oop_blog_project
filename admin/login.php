@@ -1,3 +1,14 @@
+<?php
+
+    require_once "../vendor/autoload.php";
+    // use App\classes\Login;
+    $login = new App\classes\Login;
+
+    if (isset($_POST['login'])) {
+        $login->loginCheck($_POST);
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +40,7 @@
       <form class="form-signin" action="index.html" method="post">
         <h2 class="form-signin-heading">Login in now</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" name="username" autofocus>
+            <input type="email" class="form-control" placeholder="Email ID" name="email" autofocus>
             <input type="password" name="password" class="form-control" placeholder="Password">
 
             <label class="checkbox">
@@ -40,7 +51,7 @@
                 </span>
             </label>
 
-            <button class="btn btn-lg btn-login btn-block" type="submit">Login in</button>
+            <button class="btn btn-lg btn-login btn-block" type="submit" name="login">Login in</button>
 
             <!-- registration  -->
             <div class="registration">
@@ -51,30 +62,6 @@
             </div>
 
         </div>
-
-          <!-- Modal -->
-          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h4 class="modal-title">Forgot Password ?</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          <p>Enter your e-mail address below to reset your password.</p>
-                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-                      </div>
-                      <div class="modal-footer">
-                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                          <button class="btn btn-success" type="button">Submit</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- modal -->
 
       </form>
 
