@@ -1,11 +1,16 @@
 <?php
 
+    session_start();
+    if (isset($_SESSION['userID'])) {
+        header('location: index.php');
+    }
+
     require_once "../vendor/autoload.php";
     // use App\classes\Login;
-    $login = new App\classes\Login;
+    $login = new App\classes\Login();
 
     if (isset($_POST['login'])) {
-        $login->loginCheck($_POST);
+      $loginError = $login->loginCheck($_POST);
     }
 
 ?>
@@ -37,7 +42,7 @@
 
     <div class="container">
 
-      <form class="form-signin" action="index.html" method="post">
+      <form class="form-signin" action="" method="post">
         <h2 class="form-signin-heading">Login in now</h2>
         <div class="login-wrap">
             <input type="email" class="form-control" placeholder="Email ID" name="email" autofocus>
@@ -55,10 +60,7 @@
 
             <!-- registration  -->
             <div class="registration">
-                Don't have an account yet?
-                <a class="" href="registration.html">
-                    Create an account
-                </a>
+              <p> <?= (isset($loginError))? $loginError : ''; ?> </p>
             </div>
 
         </div>
