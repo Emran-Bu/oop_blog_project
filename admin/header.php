@@ -29,6 +29,11 @@
     <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
 
+    <!--dynamic table-->
+    <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
 

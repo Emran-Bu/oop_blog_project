@@ -11,7 +11,7 @@
             $password = md5($data['password']);
 
             if ($email == '' or $password == '') {
-                $loginError = "Username or password required";
+                $loginError = "Username and password required";
                 return $loginError;
             } else {
                 

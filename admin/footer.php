@@ -32,6 +32,11 @@
     <script src="js/easy-pie-chart.js"></script>
     <script src="js/count.js"></script>
 
+    <!--dynamic table initialization -->
+    <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
+    <script src="js/dynamic_table_init.js"></script>
+
   <script>
 
       //owl carousel
