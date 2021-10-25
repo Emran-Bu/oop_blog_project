@@ -29,8 +29,7 @@
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['photo'] = $row['photo'];
-                        // print_r($row);
-                        // exit();
+    
                         header('location: index.php');
                     } else {
                         $loginError = "Username or password invalid";

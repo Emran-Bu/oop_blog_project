@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
+    <meta name="author" content="Emran">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
@@ -56,13 +56,14 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="img/avatar1_small.jpg">
-                            <span class="username">Jhon Doue</span>
+                            <!-- <img alt="" src="img/avatar1_small.jpg"> -->
+                            <img class="rounded-circle" class="radius-50%" height="40px" width="40px" alt="" src="img/<?= $_SESSION['photo'] ?>">
+                            <span class="username"><?= $_SESSION['name'] ?></span>
                             <b class="caret"></b>
                         </a>
                         <ul style="left: 0px !important;" class="dropdown-menu extended logout dropdown-menu-right">
                             <div class="log-arrow-up"></div>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li><a href="logout.php"><i class="fa fa-key"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -77,7 +78,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="index.html">
+                      <a class="active" href="index.php">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -86,23 +87,12 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-laptop"></i>
-                          <span>Layouts</span>
+                          <span>Categories</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="boxed_page.html">Boxed Page</a></li>
-                          <li><a  href="horizontal_menu.html">Horizontal Menu</a></li>
-                          <li><a  href="header-color.html">Different Color Top bar</a></li>
-                          <li><a  href="mega_menu.html">Mega Menu</a></li>
-                          <li><a  href="language_switch_bar.html">Language Switch Bar</a></li>
-                          <li><a  href="email_template.html" target="_blank">Email Template</a></li>
+                          <li><a  href="add_category.php">Add Category</a></li>
+                          <li><a  href="manage_category.php">Manage Category</a></li>
                       </ul>
-                  </li>
-
-                  <li>
-                      <a  href="login.html">
-                          <i class="fa fa-user"></i>
-                          <span>Login Page</span>
-                      </a>
                   </li>
 
               </ul>
