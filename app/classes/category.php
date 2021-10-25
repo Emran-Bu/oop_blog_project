@@ -26,6 +26,35 @@
             }
             
         }
+
+        public function allCategory()
+        {
+            $sql = "SELECT * FROM category";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
+        public function active($activeId)
+        {
+            $sql = "UPDATE category set status = 1 where id = '{$activeId}'";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            if (isset($result)) {
+                header('location: manage_category.php');
+                return $result;
+            }
+            
+        }
+
+        public function inactive($inactiveId)
+        {
+            $sql = "UPDATE category set status = 0 where id = '{$inactiveId}'";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            if (isset($result)) {
+                header('location: manage_category.php');
+                return $result;
+            }
+        }
     }
 
 ?>
