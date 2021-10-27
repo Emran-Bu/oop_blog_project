@@ -54,6 +54,15 @@
             
         }
 
+        // show Category data blog page in select option
+        public function allActiveCategory()
+        {
+            $sql = "SELECT * FROM category where status = 1";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
         // show Category data manage page
         public function allCategory()
         {
