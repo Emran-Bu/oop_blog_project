@@ -1,5 +1,6 @@
 <?php
 
+    ob_start();
     session_start();
     if (!isset($_SESSION['userID'])) {
         header('location: login.php');
@@ -100,6 +101,17 @@
                       <ul class="sub">
                           <li class="<?= $page=='add_category.php'? 'active': '' ?>"><a  href="add_category.php">Add Category</a></li>
                           <li class="<?= $page=='manage_category.php'? 'active': '' ?>"><a  href="manage_category.php">Manage Category</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a class="<?= $page =='add_blog.php' || $page =='manage_blog.php'? 'active': '' ?>" href="javascript:;" >
+                          <i class="fa fa-laptop"></i>
+                          <span>Blogs</span>
+                      </a>
+                      <ul class="sub">
+                          <li class="<?= $page=='add_blog.php'? 'active': '' ?>"><a  href="add_blog.php">Add Blog</a></li>
+                          <li class="<?= $page=='manage_blog.php'? 'active': '' ?>"><a  href="manage_blog.php">Manage Blog</a></li>
                       </ul>
                   </li>
 
