@@ -35,6 +35,9 @@
     <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 
+    <!--  summernote -->
+    <link href="assets/summernote/summernote-bs4.css" rel="stylesheet">
+
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
 

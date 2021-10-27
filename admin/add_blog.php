@@ -8,13 +8,13 @@ include('header.php') ?>
     require_once('../vendor/autoload.php');
     $category = new Category;
 
-    if (isset($_POST['save_category'])) {
+    if (isset($_POST['save_blog'])) {
         $categoryError = $category->addCategory($_POST);
     }
 
 ?>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <section class="card">
                 <header class="text-center card-header">
                     Create Blog
@@ -34,6 +34,14 @@ include('header.php') ?>
                             <label for="blog_title" class="col-sm-3 col-form-label">Blog Tittle</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="text" name="blog_title" id="blog_title">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label for="content" class="col-sm-3 col-form-label">Content</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control summernote" name="content" id="content" cols="30" rows="10"></textarea>
+                                <!-- <textarea class="form-control" type="text" name="content" id="content"> -->
                             </div>
                         </div>
 
@@ -65,7 +73,7 @@ include('header.php') ?>
                         </fieldset>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary" name="save_category">Save</button>
+                                <button type="submit" class="btn btn-primary" name="save_blog">Save</button>
                             </div>
                         </div>
                         <div class="row">

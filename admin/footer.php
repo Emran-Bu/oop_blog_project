@@ -37,7 +37,27 @@
     <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
     <script src="js/dynamic_table_init.js"></script>
 
-  <script>
+    <!--summernote-->
+    <script src="assets/summernote/summernote-bs4.min.js"></script>
+
+    <!--summernote script-->
+    <script>
+
+        jQuery(document).ready(function(){
+
+            $('.summernote').summernote({
+                height: 200,                 // set editor height
+
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+
+                focus: true                 // set focus to editable area after initializing summernote
+            });
+        });
+
+    </script>
+
+    <script>
 
       //owl carousel
 
@@ -63,7 +83,7 @@
           owl.reinit();
       });
 
-  </script>
+    </script>
 
   </body>
 </html>
