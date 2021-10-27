@@ -39,6 +39,14 @@
                 }
             }
         }
+
+        // show blog data blog manage page
+        public function allBlog()
+        {
+            $sql = "SELECT `blog`.*, `category`.`category_name` FROM `blog` JOIN `category` ON `blog`.`cat_id` = `category`.`id` ORDER BY `id` DESC";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result; 
+        }
         
     }
 
