@@ -43,11 +43,6 @@
         // update Category table data
         public function updateBlog($data)
         {
-            // print_r($data);
-            // echo $_GET['photo'];
-            // exit();
-            
-
             // photo name customize
             $photo_file_name = $_FILES['photo']['name'];
             $photo_exe_divide = explode('.', $photo_file_name);
