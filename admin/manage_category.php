@@ -54,9 +54,9 @@ include('header.php') ?>
                 <td><?= $row['category_name'] ?></td>
                 <td><?= $row['status'] == 1 ? 'Active':'Inactive' ?></td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="update.php?update=<?= $row['id'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
+                    <a class="btn btn-sm btn-success" href="update_cat.php?update=<?= $row['id'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
 
-                    <a class="btn btn-sm btn-danger" href="delete.php?delete=<?= $row['id'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                    <a class="btn btn-sm btn-danger" href="delete.php?delete_cat=<?= $row['id'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 
                     <?php
                         if ($row['status'] == 1) {

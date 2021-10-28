@@ -9,15 +9,15 @@ include('header.php') ?>
     $blog = new Blog;
     $fetchAllBlog = $blog->allBlog();
 
-    // if (isset($_GET['active'])) {
-    //     $activeId = $_GET['active'];
-    //     $category->active($activeId);
-    // }
+    if (isset($_GET['active_blog'])) {
+        $activeId = $_GET['active_blog'];
+        $blog->active($activeId);
+    }
 
-    // if (isset($_GET['inactive'])) {
-    //     $inactiveId = $_GET['inactive'];
-    //     $category->inactive($inactiveId);
-    // }
+    if (isset($_GET['inactive_blog'])) {
+        $inactiveId = $_GET['inactive_blog'];
+        $blog->inactive($inactiveId);
+    }
 
 ?>
 <div class="row">
@@ -62,15 +62,15 @@ include('header.php') ?>
                 <td><img class="" height="50px" width="60px" src="../upload/<?= $row['photo'] ?>" alt="photo" srcset=""></td>
                 <td><?= $row['status'] == 1 ? 'Active':'Inactive' ?></td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="update.php?update=<?= $row['id'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
+                    <a class="btn btn-sm btn-success" href="update_blog.php?update_blog=<?= $row['id'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
 
-                    <a class="btn btn-sm btn-danger" href="delete.php?delete=<?= $row['id'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                    <a class="btn btn-sm btn-danger" href="delete.php?delete_blog=<?= $row['id'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 
                     <?php
                         if ($row['status'] == 1) {
                             
                     ?>
-                        <a class="btn btn-sm btn-warning" href="?inactive=<?= $row['id'] ?>"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Inactive</a>
+                        <a class="btn btn-sm btn-warning" href="?inactive_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Inactive</a>
                     <?php
                     }
                     ?>
@@ -79,7 +79,7 @@ include('header.php') ?>
                         if ($row['status'] == 0) {
                             
                     ?>
-                        <a class="btn btn-sm btn-info" href="?active=<?= $row['id'] ?>"> <i class="fa fa-arrow-up" aria-hidden="true"></i> Active</a>
+                        <a class="btn btn-sm btn-info" href="?active_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-up" aria-hidden="true"></i> Active</a>
                     <?php
                     }
                     ?>

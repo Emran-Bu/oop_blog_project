@@ -63,7 +63,7 @@
             
         }
 
-        // show Category data manage page
+        // show Category data update manage page
         public function allCategory()
         {
             $sql = "SELECT * FROM category";

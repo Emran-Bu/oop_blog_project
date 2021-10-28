@@ -47,6 +47,49 @@
             $result = mysqli_query(Database::dbConn(), $sql);
             return $result; 
         }
+
+        // show blog data update manage page 
+        public function allCategory()
+        {
+            $sql = "SELECT `blog`.*, `category`.`category_name` FROM `blog` JOIN `category` ON `blog`.`cat_id` = `category`.`id`";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
+        // delete Blog table data
+        public function deleteBlog($deleteID)
+        {
+            $sql = "DELETE FROM blog where id = $deleteID";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            if (isset($result)) {
+                header('location: manage_blog.php');
+                return $result;
+            }
+        }
+
+        // active Category table data
+        public function active($activeId)
+        {
+            $sql = "UPDATE blog set status = 1 where id = '{$activeId}'";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            if (isset($result)) {
+                header('location: manage_blog.php');
+                return $result;
+            }
+            
+        }
+
+        // inactive Category table data
+        public function inactive($inactiveId)
+        {
+            $sql = "UPDATE blog set status = 0 where id = '{$inactiveId}'";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            if (isset($result)) {
+                header('location: manage_blog.php');
+                return $result;
+            }
+        }
         
     }
 
