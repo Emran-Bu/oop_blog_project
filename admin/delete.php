@@ -15,6 +15,9 @@
     if (isset($_GET['delete_blog'])) {
         $deleteBlogID = $_GET['delete_blog'];
         $blog->deleteBlog($deleteBlogID);
+
+        $deletePhoto = $_GET['photo'];
+        unlink('../upload/'. $deletePhoto);
     }
 
 ?>

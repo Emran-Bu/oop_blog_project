@@ -60,17 +60,16 @@ include('header.php') ?>
                 <td><?= $row['content'] ?></td>
                 <td><?= $row['name'] ?></td>
                 <td><img class="" height="50px" width="60px" src="../upload/<?= $row['photo'] ?>" alt="photo" srcset=""></td>
-                <td><?= $row['status'] == 1 ? 'Active':'Inactive' ?></td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="update_blog.php?update_blog=<?= $row['id'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
-
-                    <a class="btn btn-sm btn-danger" href="delete.php?delete_blog=<?= $row['id'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                    <?php 
+                    // $row['status'] == 1 ? 'Active':'Inactive' 
+                    ?>
 
                     <?php
                         if ($row['status'] == 1) {
                             
                     ?>
-                        <a class="btn btn-sm btn-warning" href="?inactive_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Inactive</a>
+                        <a class="btn btn-sm btn-info" href="?inactive_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-down" aria-hidden="true"></i> Active</a>
                     <?php
                     }
                     ?>
@@ -79,10 +78,16 @@ include('header.php') ?>
                         if ($row['status'] == 0) {
                             
                     ?>
-                        <a class="btn btn-sm btn-info" href="?active_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-up" aria-hidden="true"></i> Active</a>
+                        <a class="btn btn-sm btn-warning" href="?active_blog=<?= $row['id'] ?>"> <i class="fa fa-arrow-up" aria-hidden="true"></i> Inactive</a>
                     <?php
                     }
                     ?>
+
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-success" href="update_blog.php?update=<?= $row['id'] ?>&photo=<?= $row['photo'] ?>"> <i class="fa fa-pencil-square-o"></i> Update</a>
+
+                    <a class="btn btn-sm btn-danger" href="delete.php?delete_blog=<?= $row['id'] ?>&photo=<?= $row['photo'] ?>"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
                 </td>
             </tr>
 
