@@ -16,9 +16,9 @@
             
             // add blog table data
             $cat_id = $data['cat_id'];
-            $title = $data['title'];
-            $content = $data['content'];
-            $name = $data['name'];
+            $title = mysqli_real_escape_string(Database::dbConn(), $data['title']);
+            $content = mysqli_real_escape_string(Database::dbConn(), $data['content']);
+            $name = mysqli_real_escape_string(Database::dbConn(), $data['name']);
             $photo_tmp_name = $_FILES['photo']['tmp_name'];
             $status = isset($data['status']);
 
@@ -52,32 +52,34 @@
             
             // update blog table data
             $id = $data['id'];
-            $cat_id = $data['cat_id'];
-            $title = $data['title'];
-            $content = $data['content'];
-            $name = $data['name'];
+            $cat_id = mysqli_real_escape_string(Database::dbConn(), $data['cat_id']);
+            $title = mysqli_real_escape_string(Database::dbConn(), $data['title']);
+            $content = mysqli_real_escape_string(Database::dbConn(), $data['content']);
+            $name = mysqli_real_escape_string(Database::dbConn(), $data['name']);
             $photo_tmp_name = $_FILES['photo']['tmp_name'];
             $status = $data['status'];
 
             if ($cat_id == '' or $title == '' or $content == '' or $name == '' or $status == '') {
                 $blogError = "All field are required";
                 return $blogError;
-            } else {
-                $deletePhoto = $_GET['photo'];
-                unlink('../upload/'. $deletePhoto);
-                if ($_FILES['photo']['name'] == null) {
-                    $sql = "UPDATE blog set cat_id = '$cat_id', title = '$title', content = '$content', name = '$name', status = '$status' where id = '{$id}'";
+            } else if ($_FILES['photo']['name'] == null) {
+                $sql = "UPDATE blog set cat_id = '$cat_id', title = '$title', content = '$content', name = '$name', status = '$status' where id = '{$id}'";
 
-                    $result = mysqli_query(Database::dbConn(), $sql);
+                $result = mysqli_query(Database::dbConn(), $sql);
 
-                    if ($result) {
-                        $blogError = "Blog update Successfully";
-                        header('location: manage_blog.php');
-                        return $blogError;
-                    } else {
-                        die('Query Unsuccessfully');
-                    }
+                if ($result) {
+                    $blogError = "Blog update Successfully";
+                    header('location: manage_blog.php');
+                    return $blogError;
                 } else {
+                    die('Query Unsuccessfully');
+                }
+
+                } else {
+                    
+                    $deletePhoto = $_GET['photo'];
+                    unlink('../upload/'. $deletePhoto);
+                    
                     $sql = "UPDATE blog set cat_id = '$cat_id', title = '$title', content = '$content', name = '$name', photo = '$photo_name', status = '$status' where id = '{$id}'";
 
                     $result = mysqli_query(Database::dbConn(), $sql);
@@ -91,8 +93,6 @@
                         die('Query Unsuccessfully');
                     }
                 }
-            }
-            
         }
 
         // show blog data blog manage page

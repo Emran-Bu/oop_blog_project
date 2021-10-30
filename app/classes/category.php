@@ -63,6 +63,24 @@
             
         }
 
+        // show blog data front page
+        public function allActivePost()
+        {
+            $sql = "SELECT * FROM blog where status = 1";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
+        // show blog data front single page
+        public function singlePost($data)
+        {
+            $sql = "SELECT * FROM blog where id = $data";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
         // show Category data manage page
         public function allCategory()
         {
