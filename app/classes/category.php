@@ -90,6 +90,15 @@
             
         }
 
+        // show blog data front page search
+        public function searchPost($data)
+        {
+            $sql = "SELECT * FROM blog where title LIKE '%$data%' OR content LIKE '%$data%' AND status = 1 order by id desc";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
         // show Category data manage page
         public function allCategory()
         {
