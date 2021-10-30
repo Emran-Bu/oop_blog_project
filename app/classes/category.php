@@ -66,7 +66,7 @@
         // show blog data front page
         public function allActivePost()
         {
-            $sql = "SELECT * FROM blog where status = 1";
+            $sql = "SELECT * FROM blog where status = 1 order by id desc";
             $result = mysqli_query(Database::dbConn(), $sql);
             return $result;
             
@@ -76,6 +76,15 @@
         public function singlePost($data)
         {
             $sql = "SELECT * FROM blog where id = $data";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
+        // show blog data front single page category wise
+        public function catPost($data)
+        {
+            $sql = "SELECT * FROM blog where status = 1 AND cat_id = $data order by id desc";
             $result = mysqli_query(Database::dbConn(), $sql);
             return $result;
             
