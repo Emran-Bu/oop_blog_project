@@ -1,5 +1,12 @@
 <?php
 
+    
+    require_once('vendor/autoload.php');
+
+    $cat = new \App\classes\Category;
+
+    $cathData = $cat->allActiveCategory();
+
     require_once('header.php');
 
 ?>
