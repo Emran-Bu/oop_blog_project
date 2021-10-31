@@ -7,6 +7,14 @@
 
     $cathData = $cat->allActiveCategory();
     
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    
+    $pagination = $cat->pagination($page);
+
     $postData = $cat->allActivePost();
 
     require_once('header.php');
@@ -71,9 +79,9 @@
                         } else {
                     ?>
                     <?php
-                        if (mysqli_num_rows($postData) > 0) {
+                        if (mysqli_num_rows($pagination) > 0) {
                            
-                        while ($row1 = mysqli_fetch_assoc($postData)) {
+                        while ($row1 = mysqli_fetch_assoc($pagination)) {
                     ?>
                     <div class="card mb-4">
                         <a href="#!"><img class="card-img-top" src="upload/<?= $row1['photo'] ?>" alt="img" /></a>
@@ -93,13 +101,49 @@
                             <nav aria-label="Pagination">
                                 <hr class="my-0" />
                                 <ul class="pagination justify-content-center my-4">
-                                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                                    <?php
+                                        if ($page > 1){
+                                    ?>
+                                        <li class="page-item"><a class="page-link" href="?page=<?= $page - 1 ?>" tabindex="-1" aria-disabled="true">Prev</a></li>
+                                    <?php
+                                        }
+                                    ?>
+                                    
+                                    <?php
+                                        if (mysqli_num_rows($postData) > 0) {
+                                            $total_records = mysqli_num_rows($postData);
+                                            $limit = 2;
+                                            $total_pages = ceil($total_records/$limit);
+                                        
+                                        for ($i = 1; $i <= $total_pages; $i++) {
+                                            if ($i == $page) {
+                                                $active = "active";
+                                            } else {
+                                                $active = "";
+                                            }
+                                            
+                                    ?>
+                                    <li class="page-item <?= $active ?>" aria-current="page"><a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a></li>
+                                    <?php
+                                        }
+                                    } else {
+                                    ?>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <p class="card-text text-center text-muted">No post found</p>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+
+                                    <?php
+                                    if ($total_pages > $page){
+                                    ?>
+                                        <li class="page-item"><a class="page-link" href="?page=<?= $page + 1 ?>" tabindex="-1" aria-disabled="true">Next</a></li>
+                                    <?php
+                                        }
+                                    ?>
                                 </ul>
                             </nav>
                         <?php

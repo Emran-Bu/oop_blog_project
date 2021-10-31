@@ -63,6 +63,19 @@
             
         }
 
+        // show pagination blog data front page
+        public function pagination($page)
+        {
+            // $sql = "SELECT * FROM blog where status = 1 order by id desc";
+
+            $limit = 2;
+            $offset = ($page - 1) * $limit;
+            $sql = "SELECT * FROM blog where status = 1 order by id desc limit {$offset}, {$limit}";
+            $result = mysqli_query(Database::dbConn(), $sql);
+            return $result;
+            
+        }
+
         // show blog data front page
         public function allActivePost()
         {
